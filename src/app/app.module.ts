@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { MissionsComponent } from './missions/missions.component';
 import { MissionDetailsComponent } from './mission-details/mission-details.component';
+import { CallHistoryComponent } from './call-history/call-history.component';
 
 
 
@@ -61,6 +62,7 @@ const routes : Routes=[
     OrderDetailsComponent,
     MissionsComponent,
     MissionDetailsComponent,
+    CallHistoryComponent,
     
   ],
   imports: [

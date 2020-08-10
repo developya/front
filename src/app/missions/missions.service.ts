@@ -33,4 +33,13 @@ export class MissionsService {
    }   )  
 
 }
+
+getMotifRefus(){
+
+
+  return this.http.get<[]>('http://localhost:3000/api/getAllmotifRefus/')
+ }
+
+
+
 }

@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { User } from '../models/user';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../users/user.service';
-import { LoginService } from '../login/login.service';
+  import { LoginService } from '../login/login.service';
 import { MissionsService } from './missions.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class MissionsComponent implements OnInit {
   affected_user_name;
   connected_user_id;
   user_role;
+
 
    allorders:  Order[] = [];
 
@@ -67,6 +68,8 @@ export class MissionsComponent implements OnInit {
         },
         error => console.log(error)
         );
+
+   
 
   }
   
