@@ -1,0 +1,136 @@
+<section class="page-users-view">
+                    <div class="row">
+                        <!-- account start -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">Informations générales de l'agent immobilier</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="users-view-image">
+                                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" style="width: 100px !important;"  class="users-avatar-shadow w-100 rounded mb-2 pr-2 ml-1" alt="avatar">
+                                        </div>
+                                        <div class="col-12 col-sm-9 col-md-6 col-lg-5">
+                                            <table>
+                                                <tbody><tr>
+                                                    <td class="font-weight-bold">Nom : </td>
+                                                    <td>{{order[0].Client.first_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Prénom : </td>
+                                                    <td>{{order[0].Client.last_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Email : </td>
+                                                    <td>{{order[0].Client.email}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Pays : </td>
+                                                    <td>{{order[0].Client.contry}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold">Ville : </td>
+                                                    <td>{{order[0].Client.city}}</td>
+                                                </tr>
+                                          
+                                            </tbody></table>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-5">
+                                            <table class="ml-0 ml-sm-0 ml-lg-0">
+                                                <tbody> 
+                                                    
+                                                <tr>
+                                                    <td class="font-weight-bold">Département : </td>
+                                                    <td>{{order[0].Client.departement}}</td>
+                                                </tr>
+                                             
+                                                <tr>
+                                                    <td class="font-weight-bold">Adresse : </td>
+                                                    <td>{{order[0].Client.address}}</td>
+                                                </tr>
+    
+                                                <tr>
+                                                    <td class="font-weight-bold">Code Prostal : </td>
+                                                    <td>{{order[0].Client.cp}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- account end -->
+                        <!-- information start -->
+                        <div class="col-md-6 col-12 ">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title mb-2">Critères de recherche</div>
+                                </div>
+                                <div class="card-body">
+                                    <table>
+                               
+                                        <tbody>
+                                        <tr>
+                                            <td class="font-weight-bold">N° Client :  </td>
+                                            <td>{{order[0].Client.Criteria[0].client_id}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="font-weight-bold">Nom du réseau : </td>
+                                            <td>{{order[0].Client.Criteria[0].nom_reseau}}</td>
+                                        </tr> 
+                                        <tr>
+                                            <td class="font-weight-bold">Codes postaux:  </td>
+                                            <td>{{order[0].Client.Criteria[0].codepostaux}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-bold">Fourchette de prix maximal:  </td>
+                                            <td>{{order[0].Client.Criteria[0].fourchettedeprixmaximal}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-bold">Fourchette de prix minimal:  </td>
+                                            <td>{{order[0].Client.Criteria[0].fourchettedeprixminimal}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-bold">Heure du premier rdv:  </td>
+                                            <td>{{order[0].Client.Criteria[0].heure_premier_rdv}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-bold">Heure du  dernier rdv:  </td>
+                                            <td>{{order[0].Client.Criteria[0].heure_dernier_rdv}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-bold">Nbr RDV par semaine:  </td>
+                                            <td>{{order[0].Client.Criteria[0].heure_dernier_rdv}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-bold">Types de bien:  </td>
+                                            <td>{{order[0].Client.Criteria[0].typesdebien}}</td>
+                                        </tr>
+                                        
+                                        
+                                    </tbody></table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- information start -->
+                        <!-- social links end -->
+                        <div class="col-md-6 col-12 ">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title mb-2">Historique des appeles</div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- social links end -->
+                        <!-- permissions start -->
+                     
+                        <!-- permissions end -->
+                    </div>
+                </section>

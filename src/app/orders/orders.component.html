@@ -1,0 +1,128 @@
+
+            <section id="data-list-view" class="data-list-view-header">
+ 
+
+                <!-- DataTable starts -->
+                <div class="table-responsive">
+                    
+                    <table   class="table data-list-view" datatable [dtOptions]="dtOptions"
+                    [dtTrigger]="dtTrigger">
+                        <thead>
+                            <tr>
+                                <th>N°cmd</th>
+                                <th>Nom et prénom</th>
+                                <th>Date cmd</th>
+                                <th>Nbr Rdv</th>
+                                <th>Nbr Rdv pris</th>
+                                <th>Statut</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of allorders"> 
+                              
+                          
+                                <td class="product-category">{{order.id}}</td>
+                                <td class="product-category">{{order.Client.first_name}} {{order.Client.last_name}}</td>
+                                <td class="product-category">{{order.createdAt | date }} </td>
+                                <td class="product-category">{{order.nbr_rdv }} </td>
+                                <td class="product-category">{{order.nbr_rdv_prises }} </td>
+                        
+                                <td class="product-category">
+                                    
+                                    <div class="chip chip-danger"  *ngIf="order.affected_to_user2_id==null">
+                                        <div class="chip-body">
+                                            <div class="chip-text">Non réafféctée</div>
+                                        </div>
+                                    </div>
+                                    <div class="chip chip-danger"  *ngIf="order.affected_to_user1_id==null">
+                                        <div class="chip-body">
+                                            <div class="chip-text">Non afféctée</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="chip chip-primary" *ngIf="order.affected_to_user1_id !=null">
+                                        <div class="chip-body">
+                                            <div class="chip-text">affécté à  {{order.AdminUser.first_name}}
+                                            </div>  
+                                        </div>
+                                    </div>
+
+                                    <div class="chip chip-primary" *ngIf="order.affected_to_user2_id !=null">
+                                        <div class="chip-body">
+                                            <div class="chip-text">réaffécté à  {{order.OperateurUser.first_name}}
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </td>
+                     
+                                <td class="product-category">
+                                    <button *ngIf="order.affected_to_user1_id ==null"  (click)='getOrderId(order.id,order)' type="button" class="btn btn-outline-success waves-effect waves-light" data-toggle="modal" data-target="#inlineForm">
+                                        Affecter
+                                    </button>  
+                                    <button *ngIf="order.affected_to_user1_id !=null" (click)='getOrderId(order.id,order)' type="button" class="btn btn-outline-success waves-effect waves-light" data-toggle="modal" data-target="#inlineForm">
+                                       Réaffecter
+                                    </button>    
+                                    <button (click)='getOrderId(order.id,order)' [routerLink]="['/orders/',order.id]" type="button" class="btn btn-outline-success waves-effect waves-light" data-toggle="modal" data-target="#inlineForm">
+                                        Détails
+                                    </button>       
+                                </td>
+                                
+
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <div class="modal fade text-left show"  id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel33">Affectaction de la commande N° {{selected_Order_Id}}</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form  #myform="ngForm" >
+                                    <div class="modal-body">
+                                        <label>Choisissez l'utilisateur  : </label>
+                                        <div class="form-group">
+                                            <select
+                                              type="text"
+                                              class="select2-icons form-control select2-hidden-accessible"
+                                              name="user_id"
+                                              ngModel  
+                                              required 
+                                              >
+                                              <option 
+                                                   *ngFor="let user of listAdmins"
+                                                   [value]="user.id">
+                                                   {{user.first_name}}
+                                              </option>
+                                            </select>
+                                           
+                                              
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button 
+                                         data-dismiss="modal" 
+                                         (click)="affect_To_Admin(myform,selected_Order_Id)"
+                                         class="btn btn-primary ">
+                                         Valider
+                                        </button>
+                                    </div>
+                                   
+                                </form>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DataTable ends -->
+          
+
+               
+            </section>
+            <!-- Data list view end -->

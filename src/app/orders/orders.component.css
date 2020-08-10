@@ -1,0 +1,3 @@
+th:after,th:before {
+    display: none !important;
+  }
