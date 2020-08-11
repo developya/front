@@ -95,9 +95,9 @@
                                     <td class="font-weight-bold">Fourchette de prix minimal:  </td>
                                     <td>{{order[0].Client.Criteria[0].fourchettedeprixminimal}}</td>
                                 </tr>
-                                 <tr>
-                                    <td class="font-weight-bold">Fourchette de prix minimal:  </td>
-                                    <td>{{order[0].Client.Criteria[0].fourchettedeprixminimal}}</td>
+                                <tr>
+                                    <td class="font-weight-bold">Types de bien:  </td>
+                                    <td>{{order[0].Client.Criteria[0].typesdebien}}</td>
                                 </tr>
                                 
                             </tbody></table>
@@ -117,10 +117,7 @@
                                     <td class="font-weight-bold">Nbr RDV par semaine:  </td>
                                     <td>{{order[0].Client.Criteria[0].heure_dernier_rdv}}</td>
                                 </tr>
-                                <tr>
-                                    <td class="font-weight-bold">Types de bien:  </td>
-                                    <td>{{order[0].Client.Criteria[0].typesdebien}}</td>
-                                </tr>
+                            
                             </tbody></table>
                         </div>
                     </div>
@@ -154,12 +151,15 @@
                                                     {{motif['motif']}}
                                                   </option>
 
+           
                                             </select>
+
+                                       
                                         </div>
                                     </div>
                                  
                                     <div class="col-md-8 offset-md-4">
-                                        <button  [disabled]="myform_Refu.invalid" (click)="call_refus(myform_Refu,order[0].id)" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Valider</button>
+                                        <button  [disabled]="myform_Refu.invalid" (click)="add_call(myform_Refu,order[0].id,'refus')" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Valider</button>
                                         <button (click)="hideForm()" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Annuler</button>
                                     </div>
                                 </div>
@@ -172,6 +172,52 @@
     
     </div>
 
+    <div class="row match-height" >
+
+        <div class="col-md-6 col-12" [ngStyle]="{'display':showFormRappel === true ? 'block' : 'none' }" >
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Rappel ou répondeur</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                            <form class="form form-horizontal" #myform_rappel="ngForm" >
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-vertical">Motif de rappel</label>
+                                            <select class="form-control"
+                                            name="motif_refus"
+                                            ngModel  
+                                            required 
+                                            >
+                                                <option [value]="motif['motif']" 
+                                                    *ngFor="let motif of motifRefusList">
+                                                   
+                                                    {{motif['motif']}}
+                                                  </option>
+
+                                            </select>
+
+                                            <dp-date-picker #dayPicker></dp-date-picker>
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="col-md-8 offset-md-4">
+                                        <button  [disabled]="myform_rappel.invalid" (click)="add_call(myform_rappel,order[0].id,'a rappeler')" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Valider</button>
+                                        <button (click)="hideForm()" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Annuler</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     <div class="row match-height" >
         <div class="col-md-6 col-12" [ngStyle]="{'display':showFormRdvValide === true ? 'block' : 'none' }">
             <div class="card">
@@ -220,55 +266,7 @@
     
     </div>
 
-    <div class="row match-height" >
-        <div class="col-md-6 col-12" [ngStyle]="{'display':showFormRappel === true ? 'block' : 'none' }" >
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Agenda</h4>
-                </div>
-             
-            </div>
-        </div>
 
-        <div class="col-md-6 col-12" [ngStyle]="{'display':showFormRappel === true ? 'block' : 'none' }" >
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Horizontal Form with Icons</h4>
-                </div>
-                <div class="card-content">
-                    <div class="card-body">
-                        <form class="form form-horizontal">
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <div class="col-md-4">
-                                                <span>First Name</span>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="position-relative has-icon-left">
-                                                    <input type="text" id="fname-icon" class="form-control" name="fname-icon" placeholder="First Name">
-                                                    <div class="form-control-position">
-                                                        <i class="feather icon-user"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-                               
-                                    <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
-                                        <button (click)="hideForm()" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Annuler</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">

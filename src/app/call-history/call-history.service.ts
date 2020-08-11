@@ -11,6 +11,6 @@ export class CallHistoryService {
 
   addCall(body:any){
 
-    return this.http.post('http://localhost:3000/api/login',body)
+    return this.http.post('http://localhost:3000/api/newCall',body)
    }
 }

@@ -34,10 +34,10 @@ export class MissionsService {
 
 }
 
-getMotifRefus(){
+getMotifRefus(motif:String){
 
 
-  return this.http.get<[]>('http://localhost:3000/api/getAllmotifRefus/')
+  return this.http.get<[]>('http://localhost:3000/api/getAllmotifRefus/'+motif)
  }
 
 
